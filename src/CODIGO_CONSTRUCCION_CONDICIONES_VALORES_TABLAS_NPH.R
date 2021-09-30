@@ -14,14 +14,14 @@ reemplaza_coma_punto <- function(.x){str_replace_all(.x, ",", ".")}
 
 
 datos2 %>%
-  mutate_at(c("AREA_TERRENO1", "AREA_TERRENO2", "AREA USO1", "AREA USO2"),
+  mutate_at(c("AREA_TERRENO1", "AREA_TERRENO2", "AREA_USO1", "AREA_USO2"),
             reemplaza_coma_punto)
 
 
 datos2[, "AREA_TERRENO1"]<-str_replace_all(datos2$AREA_TERRENO1, ",", ".")
 datos2$AREA_TERRENO2<-str_replace_all(datos2$AREA_TERRENO2, ",", ".")
-datos2[, "AREA USO1"]<-str_replace_all(datos2[, "AREA USO1"], ",", ".")
-datos2[, "AREA USO2"]<-str_replace_all(datos2[, "AREA USO2"], ",", ".")
+datos2[, "AREA_USO1"]<-str_replace_all(datos2[, "AREA_USO1"], ",", ".")
+datos2[, "AREA_USO2"]<-str_replace_all(datos2[, "AREA_USO2"], ",", ".")
 
 attach(datos2)
 
