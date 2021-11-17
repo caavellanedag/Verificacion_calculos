@@ -5,11 +5,10 @@ COMPARACION SISTEMAS
 ---------------------------------------------------------------------------------------------**/
 
 %let _timer_start = %sysfunc(datetime());
-%LET RUTA = \\prowin04\cavellaneda\EJERCICIOS\EJERCICIOS 2021\VERIFICACION_CALCULOS;
-LIBNAME PRUEBA "\\prowin04\cavellaneda\EJERCICIOS\EJERCICIOS 2021\VERIFICACION_CALCULOS";
+%LET RUTA = \\prowin04\cavellaneda\EJERCICIOS\EJERCICIOS 2021\VERIFICACION_CALCULOS\COMPARACION_SISTEMAS;
+LIBNAME PRUEBA "\\prowin04\cavellaneda\EJERCICIOS\EJERCICIOS 2021\VERIFICACION_CALCULOS\COMPARACION_SISTEMAS";
 
-
-%LET FECHA_CORTE = 211107;
+%LET FECHA_CORTE = 211112;
 %LET VIGENCIA = 2022;
 %LET VIGENCIA_2 = 22;
 %LET YEAR = &VIGENCIA. - 1;
@@ -17,6 +16,224 @@ LIBNAME PRUEBA "\\prowin04\cavellaneda\EJERCICIOS\EJERCICIOS 2021\VERIFICACION_C
 %LET VIGENCIA_ANT_2 = %sysevalf(&VIGENCIA_2.-1);
 %LET VIGENCIA_ANT_ANT = %sysevalf(&VIGENCIA.-2);
 %LET VIGENCIA_ANT_ANT_2 = %sysevalf(&VIGENCIA_2.-2);
+
+
+proc import datafile = "&RUTA.\input\211104_REPORTE_FINAL_M01_1.xlsx"
+ out  =  VARS_M01_1
+ dbms  =  xlsx
+ replace;
+ sheet  =  "Diccionario";
+/*namerow=7;
+datarow=8;*/
+range='A7:';
+getnames=YES;
+run;
+
+
+proc sql;
+  select VARIABLES
+    into :VARIABLE_M01_1 separated by ' '
+    from VARS_M01_1;
+quit;
+
+
+
+proc import datafile = "&RUTA.\input\211105_REPORTE_FINAL_M01_2.xlsx"
+ out  =  VARS_M01_2
+ dbms  =  xlsx
+ replace;
+ sheet  =  "Diccionario";
+/*namerow=7;
+datarow=8;*/
+range='A7:';
+getnames=YES;
+run;
+
+
+proc sql;
+  select VARIABLES
+    into :VARIABLE_M01_2 separated by ' '
+    from VARS_M01_2;
+quit;
+
+
+
+
+proc import datafile = "&RUTA.\input\211102_REPORTE_FINAL_M01_3.xlsx"
+ out  =  VARS_M01_3
+ dbms  =  xlsx
+ replace;
+ sheet  =  "Diccionario";
+/*namerow=7;
+datarow=8;*/
+range='A7:';
+getnames=YES;
+run;
+
+
+proc sql;
+  select VARIABLES
+    into :VARIABLE_M01_3 separated by ' '
+    from VARS_M01_3;
+quit;
+
+
+
+
+proc import datafile = "&RUTA.\input\211101_REPORTE_FINAL_M02_4.xlsx"
+ out  =  VARS_M02_4
+ dbms  =  xlsx
+ replace;
+ sheet  =  "Diccionario";
+/*namerow=7;
+datarow=8;*/
+range='A7:';
+getnames=YES;
+run;
+
+
+proc sql;
+  select VARIABLES
+    into :VARIABLE_M02_4 separated by ' '
+    from VARS_M02_4;
+quit;
+
+
+proc import datafile = "&RUTA.\input\211026_REPORTE_FINAL_M02_5.xlsx"
+ out  =  VARS_M02_5
+ dbms  =  xlsx
+ replace;
+ sheet  =  "Diccionario";
+/*namerow=7;
+datarow=8;*/
+range='A7:';
+getnames=YES;
+run;
+
+
+proc sql;
+  select VARIABLES
+    into :VARIABLE_M02_5 separated by ' '
+    from VARS_M02_5;
+quit;
+
+
+proc import datafile = "&RUTA.\input\211102_REPORTE_FINAL_M02_6.xlsx"
+ out  =  VARS_M02_6
+ dbms  =  xlsx
+ replace;
+ sheet  =  "Diccionario";
+/*namerow=7;
+datarow=8;*/
+range='A7:';
+getnames=YES;
+run;
+
+
+proc sql;
+  select VARIABLES
+    into :VARIABLE_M02_6 separated by ' '
+    from VARS_M02_6;
+quit;
+
+
+proc import datafile = "&RUTA.\input\211101_REPORTE_FINAL_M03.xlsx"
+ out  =  VARS_M03
+ dbms  =  xlsx
+ replace;
+ sheet  =  "Diccionario";
+/*namerow=7;
+datarow=8;*/
+range='A7:';
+getnames=YES;
+run;
+
+
+proc sql;
+  select VARIABLES
+    into :VARIABLE_M03 separated by ' '
+    from VARS_M03;
+quit;
+
+
+
+proc import datafile = "&RUTA.\input\211104_REPORTE_FINAL_M04.xlsx"
+ out  =  VARS_M04
+ dbms  =  xlsx
+ replace;
+ sheet  =  "Diccionario";
+/*namerow=7;
+datarow=8;*/
+range='A7:';
+getnames=YES;
+run;
+
+
+proc sql;
+  select VARIABLES
+    into :VARIABLE_M04 separated by ' '
+    from VARS_M04;
+quit;
+
+
+
+proc import datafile = "&RUTA.\input\211102_REPORTE_FINAL_M05.xlsx"
+ out  =  VARS_M05
+ dbms  =  xlsx
+ replace;
+ sheet  =  "Diccionario";
+/*namerow=7;
+datarow=8;*/
+range='A7:';
+getnames=YES;
+run;
+
+
+proc sql;
+  select VARIABLES
+    into :VARIABLE_M05 separated by ' '
+    from VARS_M05;
+quit;
+
+
+
+proc import datafile = "&RUTA.\input\211102_REPORTE_FINAL_M06_123.xlsx"
+ out  =  VARS_M06_123
+ dbms  =  xlsx
+ replace;
+ sheet  =  "Diccionario";
+/*namerow=7;
+datarow=8;*/
+range='A7:';
+getnames=YES;
+run;
+
+
+proc sql;
+  select VARIABLES
+    into :VARIABLE_M06_123 separated by ' '
+    from VARS_M06_123;
+quit;
+
+
+proc import datafile = "&RUTA.\input\211102_REPORTE_FINAL_M06_456.xlsx"
+ out  =  VARS_M06_456
+ dbms  =  xlsx
+ replace;
+ sheet  =  "Diccionario";
+/*namerow=7;
+datarow=8;*/
+range='A7:';
+getnames=YES;
+run;
+
+
+proc sql;
+  select VARIABLES
+    into :VARIABLE_M06_456 separated by ' '
+    from VARS_M06_456;
+quit;
+
 
 DATA PRUEBA.VISTA_MODELO_UNID_LIQ_ACTUALI; /*SET COMUN.PREDIO_Y_UM_FINAL_&FECHA_CORTE.;*/
  SET COMUN.PREDIO_Y_UM_FINAL_&FECHA_CORTE.; /*PRUEBA.PREDIO_VISTA_2020_MODELOS;*/
@@ -48,19 +265,75 @@ QUIT;
 													/*FIN*/
 
 
+
 DATA COMPARA_MODSISTEMAS; SET ODBCLIB.VALORES_CONSTRUCCION; /*TABLA VALORES CONSTRUCCION SISTEMAS*/
-IF VIGENCIA = &VIGENCIA.;
+IF VIGENCIA = 2022;
 IF MODELO_APLICADO IN ('000',' ') THEN DELETE;
 RUN;
+
+PROC SQL;
+CREATE TABLE COMPARA_MODSISTEMAS AS SELECT *
+FROM ODBCLIB.VALORES_CONSTRUCCION
+WHERE MODELO_APLICADO NOT IN ('000', '') AND VIGENCIA = 2022;
+QUIT;
 
 
 DATA COMPARA_MODSISTEMAS_UR;
 SET COMPARA_MODSISTEMAS;
-IF SUBSTR(CODIGO_BARRIO,1,1) = '0';
+IF SUBSTR(CODIGO_BARRIO,1,1) = '0' OR CODIGO_BARRIO IN ('208125',
+'208126',
+'208107',
+'201109',
+'201110',
+'201302',
+'201304',
+'201309',
+'201317',
+'201408',
+'201502',
+'201503',
+'202204',
+'202309',
+'202404',
+'202410',
+'202506',
+'202511',
+'202601',
+'204104',
+'204106',
+'204129',
+'204131',
+'204304',
+'205101',
+'205109',
+'205308',
+'205316',
+'205318',
+'205319',
+'205320',
+'205322',
+'205401',
+'205402',
+'208101',
+'208104',
+'208108',
+'208110',
+'208127',
+'208128',
+'208129',
+'208203',
+'201404',
+'201508',
+'202203',
+'202502',
+'204107',
+'205102',
+'208103',
+'208111');
 LLAVE = COMPRESS(CODIGO_BARRIO || CODIGO_MANZANA || CODIGO_PREDIO || CODIGO_CONSTRUCCION || CODIGO_RESTO);
 AREA_USO = ROUND(AREA_USO,.01);
 VETUSTEZ_SIS = VETUSTEZ;
-IF (&VIGENCIA. - VETUSTEZ = 0) THEN EDAD_SIS = 1; ELSE EDAD_SIS = (&VIGENCIA.-VETUSTEZ);
+IF (2022 - VETUSTEZ = 0) THEN EDAD_SIS = 1; ELSE EDAD_SIS = (2022-VETUSTEZ);
 PUNTAJE_SIS = PUNTAJE;
 ESTRATO_SIS = ESTRATO;
 VLR_M2_CONSTRUCCION_SIS = VLR_M2_CONSTRUCCION;
@@ -76,11 +349,11 @@ RUN;
 /*INTERSECCION A NIVEL UNIDAD*/
 proc sort data=PRUEBA.VISTA_MODELO_UNID_LIQ_ACTUALI;
 by  CODIGO_BARRIO CODIGO_MANZANA CODIGO_PREDIO CODIGO_CONSTRUCCION CODIGO_RESTO CODIGO_USO UNIDAD_CALIFICADA AREA_USO CLASE_CONSTRUCCION ;RUN;
-proc sort data=PRUEBA.COMPARA_MODSISTEMAS_UR;
+proc sort data=COMPARA_MODSISTEMAS_UR;
 by  CODIGO_BARRIO CODIGO_MANZANA CODIGO_PREDIO CODIGO_CONSTRUCCION CODIGO_RESTO CODIGO_USO UNIDAD_CALIFICADA AREA_USO CLASE_CONSTRUCCION ;RUN;
 
 DATA INTER_SISTEMAS_ESTADISTICA_0; /*BASE A COMPARAR PREDIOS MAS USO MULTIPLE*/
-merge PRUEBA.VISTA_MODELO_UNID_LIQ_ACTUALI (in=en_uno) PRUEBA.COMPARA_MODSISTEMAS_UR (in=en_dos);
+merge PRUEBA.VISTA_MODELO_UNID_LIQ_ACTUALI (in=en_uno) COMPARA_MODSISTEMAS_UR (in=en_dos);
 by CODIGO_BARRIO CODIGO_MANZANA CODIGO_PREDIO CODIGO_CONSTRUCCION CODIGO_RESTO CODIGO_USO UNIDAD_CALIFICADA AREA_USO CLASE_CONSTRUCCION
 ;if en_dos and en_uno; RUN;
 
@@ -150,7 +423,7 @@ WHERE COMPARA_MODELO='INCORREC'; QUIT;
 
 
 PROC EXPORT DATA= INCORRECTO_MODELO
-			outfile= "\\prowin02\dospina\SASFILES\Verificacion_Calculos_2019\EXPORT\BD_DIFERENCIAS_VARIABLE_MODELO.xlsx" 
+			outfile= "&RUTA.\&FECHA_CORTE._BD_DIFERENCIAS_VARIABLE_MODELO.xlsx" 
 			dbms=xlsx replace;
 			sheet="Diferencia Variable Modelo";
 			RUN;
